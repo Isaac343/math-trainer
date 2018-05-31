@@ -1,8 +1,12 @@
 <?php /*
 session_start();
+=======
+<?php
+//session_start();
+>>>>>>> Stashed changes
 ?>
-<?php require_once('includes/connection.php');?>
-<?php include('includes/header.php');?>
+<?php //require_once('includes/connection.php');?>
+<?php //include('includes/header.php');?>
 <?php
 	if(isset($_POST['login'])){
 		if(!empty($_POST['username']) && !empty($_POST['password'])){

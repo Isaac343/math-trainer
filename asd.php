@@ -56,12 +56,12 @@ if ($result->num_rows > 0) {
             <p>Esta es una plataforma educativa para que practiques y mejores tus habilidades para reoslver las operaciones aritméticas basicas.</p>
 
             <?php
-              $user = $_SESSION['idusername'];
+              /*$user = $_SESSION['idusername'];
               $sql2 = "SELECT * FROM progress WHERE iduser='$user'";
               $result2= $conn->query($sql2);
               if ($result2->num_rows > 0):
-                  echo " <p> Estas son tus estadisticas actuales</p>";
-                while ($row2= $result2->fetch_assoc()):
+                 echo " <p> Estas son tus estadisticas actuales</p>";
+                while ($row2= $result2->fetch_assoc()):*/
             ?>
             <table>
               <tr>
@@ -114,8 +114,8 @@ if ($result->num_rows > 0) {
                       }?></</td>
               </tr>
             </table>
-            <?php endwhile;?>
-          <?php endif; ?>
+            <?php// endwhile;?>
+          <?php //endif; ?>
 
           </div>
         </div>
