@@ -1,4 +1,4 @@
-<?php
+<?php /*
 session_start();
 ?>
 <?php require_once('includes/connection.php');?>
@@ -32,7 +32,7 @@ session_start();
 				}
 			}
 		}
-	}
+	}*/
 ?>
 <!DOCTYPE html>
 <html>
@@ -42,25 +42,23 @@ session_start();
   	<meta name="viewport" content="width=device-width, initial-scale=1">
   	<link rel="stylesheet" href="css/loginstyle.css">
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans" rel="stylesheet">
 </head>
 <body>
 	<div class = 'container mlogin'>
 		<div id = 'login'>
-			<h1>LOGIN</h1>
+			<h1>Login</h1>
 			<form name='loginform' id='loginform' action="login.php" method="POST">
-			<p>
-				<label for="user_login">NOMBRE DE USUARIO<br>
-				<input type="text" name="username" id="username" class="input" value="" size="20" /></label>
-			</p>
-			<p>
-				<label for="user_pass">CONTRASEÑA<br>
-				<input type="password" name="password" id="username" class="input" value="" size="20"/></label>
-			</p>
-			<p class="submit">
+				<div class="form-group">
+          <label for="user_login">Nombre de Usuario</label>
+  				<input type="text" name="username" id="username" class="input" value="" placeholder="Nombre de usuario" size="20" />
+        </div>
+				<div class="form-group">
+          <label for="user_pass">Contraseña</label>
+  				<input type="password" name="password" id="username" class="input" value="" placeholder="Contraseña" size="20"/>
+        </div>
 				<input type="submit" name="login" class="button" value="Entrar"/>
-			</p>
-			<a href="register.php"> Registrate aqui</a>
+			<a href="register.php">Registrate aqui</a>
 
 			</form>
 		</div>
