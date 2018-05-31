@@ -1,8 +1,14 @@
-
 <?php
-require("constants.php");
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database = "matht";
 
-$con = mysql_connect(DB_SERVER,DB_USER, DB_PASS) or die(mysql_error());
-	mysql_select_db(DB_NAME) or die("Cannot select DB");
-	
-	?>
+// Create connection
+$conn = new mysqli($servername, $username, $password, $database);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+?>

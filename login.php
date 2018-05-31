@@ -1,22 +1,18 @@
-<?php /*
-session_start();
-=======
 <?php
-//session_start();
->>>>>>> Stashed changes
-?>
-<?php //require_once('includes/connection.php');?>
-<?php //include('includes/header.php');?>
-<?php
+
+require_once('includes/connection.php');
+include('includes/header.php');
+
 	if(isset($_POST['login'])){
 		if(!empty($_POST['username']) && !empty($_POST['password'])){
 			$username = $_POST['username'];
 			$password = $_POST['password'];
-			$query = mysql_query("SELECT * FROM usuarios WHERE username='$username' AND password='$password'"); //llamar datos desde la base de datos
-			$numrows = mysql_num_rows($query);
-			if($numrows !=0){
 
-				while ($row=mysql_fetch_assoc($query)) {
+			$sql = "SELECT * FROM usuarios WHERE username='$username' AND password='$password'";
+			$result = $conn -> query($sql);
+			if($result->num_rows != 0){
+
+				while ($row=mysqli_fetch_assoc($result)) {
 					$dbusername = $row['username'];
 					$dbpassword = $row['password'];
 					$_SESSION['idusername'] = $row['id'];
@@ -36,7 +32,7 @@ session_start();
 				}
 			}
 		}
-	}*/
+	}
 ?>
 <!DOCTYPE html>
 <html>

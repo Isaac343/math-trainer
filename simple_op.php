@@ -1,6 +1,6 @@
 <?php
-	session_start();
-?>	
+	//session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,14 +46,14 @@
 							$data = array(100, 999, 100, 999, 1, 15, 1, 15);
 							$_SESSION['global_level']=2;
 							break;
-						case 3: 
+						case 3:
 							$data = array(1000, 3000, 100, 999, 0, 15, 1, 15);
 							$_SESSION['global_level']=3;
 							break;
 					}
 					$realresult = array();
 					$op_string = array();
-					for ($c=1; $c < 11; $c++) { 
+					for ($c=1; $c < 11; $c++) {
 						$ope=rand(1, 4);
 						switch ($ope) {
 							case 1:
@@ -98,7 +98,7 @@
 								</tr>
 									<?php
 								break;
-							case 4: 
+							case 4:
 								$b = rand($data[6], $data[7]);
 								$a = $b * rand($data[6], $data[7]);
 								$result = $a/$b;
@@ -117,7 +117,7 @@
 					//print_r( $realresult);
 					$_SESSION['realresult']= $realresult;
 					$_SESSION['opdata'] = $op_string;
-			
+
 
 				?>
 				</table>
