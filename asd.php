@@ -1,5 +1,5 @@
 <?php
-session_start();
+/*session_start();
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -9,7 +9,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
-  } 
+  }
 $user=$_SESSION['idusername'];
 echo $user;
 $sql = "SELECT * FROM usuarios WHERE id='$user'";
@@ -17,7 +17,7 @@ $result= $conn->query($sql);
 if ($result->num_rows > 0) {
  $row = $result->fetch_assoc();
  $name=$row['name'];
-}
+}*/
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,10 +26,11 @@ if ($result->num_rows > 0) {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/style.css">
-  
+
   <link rel="stylesheet" href="css/bootstrap.css">
   <script type="text/javascript" src="js/jquery.js"></script>
   <script type="text/javascript" src="js/bootstrap.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans" rel="stylesheet">
 </head>
 <body>
   <div class="sidebar">
@@ -49,12 +50,11 @@ if ($result->num_rows > 0) {
       <div role="tabpanel" class="tab-pane active" id="home">
         <div class="inicial">
           <div class="titles">
-            <h1>BIENVENIDO</h1>
+            <h1>Bienvenido <?php if(isset($name)){echo $name;}?></h1>
           </div>
           <div class="paragraph">
-            <p>Bienvenido <?php if(isset($name)){echo $name;}?></p>
             <p>Esta es una plataforma educativa para que practiques y mejores tus habilidades para reoslver las operaciones aritméticas basicas.</p>
-           
+
             <?php
               $user = $_SESSION['idusername'];
               $sql2 = "SELECT * FROM progress WHERE iduser='$user'";
@@ -75,7 +75,7 @@ if ($result->num_rows > 0) {
                 <td><?php
                       if ($row2['simopeasyt'] == 0) {
                          echo "0";
-                       } 
+                       }
                        else{
                         echo $row2['simopeasyprom']/$row2['simopeasyt'];
                         }?></td>
@@ -83,7 +83,7 @@ if ($result->num_rows > 0) {
               <tr>
                 <td>Operaciones Simples<br>Nivel 2</td>
                 <td><?php echo $row2['simopnormalt'];?></td>
-                <td><?php 
+                <td><?php
                       if ($row2['simopnormalt']==0) {
                         echo "0";
                       }
@@ -97,7 +97,7 @@ if ($result->num_rows > 0) {
                 <td><?php
                       if ($row2['simophardt']==0) {
                          echo "0";
-                       } 
+                       }
                        else{
                         echo $row2['simophardprom']/$row2['simophardt'];
                         }?></</td>
@@ -116,7 +116,7 @@ if ($result->num_rows > 0) {
             </table>
             <?php endwhile;?>
           <?php endif; ?>
-            
+
           </div>
         </div>
       </div>
@@ -133,9 +133,9 @@ if ($result->num_rows > 0) {
             <center><button class="submit" type="number" name="dif" value="1"> NIVEL 1 </button></center><br>
             <center><button calss="submit" type="number" name="dif" value="2"> NIVEL 2 </button></center><br>
             <center><button class="submit" type="number" name="dif" value="3"> NIVEL 3 </button></center><br>
-          </div> 
+          </div>
           </form>
-        </div>  
+        </div>
       </div>
       <div role="tabpanel" class="tab-pane" id="problemas">
         <div class="def_selec">
@@ -150,7 +150,7 @@ if ($result->num_rows > 0) {
             <center><button class="submit" type="number" name="dif"> INICIAR</button></center><br>
             </div>
           </form>
-        </div>  
+        </div>
       </div>
     </div>
   </div>

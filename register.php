@@ -1,6 +1,7 @@
-<?php require_once("includes/connection.php"); ?>
-<?php include("includes/header.php"); ?>
+<?php //require_once("includes/connection.php"); ?>
+<?php //include("includes/header.php"); ?>
 <?php
+/*
 	if(isset($_POST["register"])){
 		if(!empty($_POST['full_name']) && !empty($_POST['email']) && !empty($_POST['username']) && !empty($_POST['password'])) {
 			$full_name=$_POST['full_name'];
@@ -26,7 +27,7 @@
 			$message = "Todos los campos no deben de estar vacios!";
 		}
 	}
-
+*/
 ?>
 <!DOCTYPE html>
 <html>
@@ -36,8 +37,9 @@
   	<meta name="viewport" content="width=device-width, initial-scale=1">
   	<link rel="stylesheet" href="css/loginstyle.css">
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans" rel="stylesheet">
 </head>
-<body>
+<body style="padding-top:0px;">
 	<?php if (!empty($message)) {echo "<p class=\"error\">" . "Mensaje: ". $message . "</p>";} ?>
 		<div class="container mregister">
 			<div id="login">
@@ -68,7 +70,7 @@
 			 	</form>
 		 	</div>
 	 	</div>
-	 
+
 	 <?php include("includes/footer.php"); ?>
 
 </body>
