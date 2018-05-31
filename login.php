@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once('includes/connection.php');
 include('includes/header.php');
 
@@ -22,6 +22,7 @@ include('includes/header.php');
 
 					echo $_SESSION['idusername'];
 				if(isset($_SESSION['session_username'])){
+
 					header('Location: asd.php');
 				}
 
