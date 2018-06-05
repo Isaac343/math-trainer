@@ -1,6 +1,71 @@
 <?php
-	//session_start();
-?>
+	session_start();
+	global $realresult;
+	class Operaciones{
+
+		function op_suma($data, &$realresult, &$op_string, $c){
+			$_SESSION['global_level'];
+			$a = rand($data[0], $data[1]);
+			$b = rand($data[0], $data[1]);
+			$result = $a+$b;
+			$string = ' '.$a.' + '.$b.' = ';
+			array_push($realresult, $result);
+			array_push($op_string, $string);
+
+			?>
+			<tr>
+				<td><?php echo $c; ?>	</td>
+				<td><?php echo('  '.$a.' + '.$b.' = ');?></td>
+				<td><?php echo'<input required="" type="text" name="answer'.$c.'">'?></td>
+			</tr><?php
+		}
+		function op_resta($data, &$realresult, &$op_string, $c){
+			$_SESSION['global_level'];
+			$a = rand($data[2], $data[3]);
+			$b = $a + rand($data[2], $data[3]);
+			$result = $b - $a;
+			$string = ' '.$b.' - '.$a.' = ';
+			array_push($realresult, $result);
+			array_push($op_string, $string);?>
+			<tr>
+				<td><?php echo $c; ?>	</td>
+				<td><?php echo(' '.$b.' - '.$a.' = ');?></td>
+				<td><?php echo'<input required="" type="text" name="answer'.$c.'">'?></td>
+			</tr>
+				<?php
+		}
+		function op_multi($data, &$realresult, &$op_string, $c){
+			$_SESSION['global_level'];
+			$a = rand($data[4], $data[5]);
+			$b = rand($data[4], $data[5]);
+			$result = $a*$b;
+			$string = ' '.$a.' * '.$b.' = ';
+			array_push($realresult, $result);
+			array_push($op_string, $string);?>
+			<tr>
+				<td><?php echo $c; ?>	</td>
+				<td><?php echo (' '.$a.' x '.$b.' = '); ?></td>
+				<td><?php echo'<input required="" type="text" name="answer'.$c.'">'?></td>
+			</tr>
+				<?php
+		}
+		function op_div($data, &$realresult, &$op_string, $c){
+			$_SESSION['global_level'];
+			$b = rand($data[6], $data[7]);
+			$a = $b * rand($data[6], $data[7]);
+			$result = $a/$b;
+			$string = ' '.$a.' / '.$b.' = ';
+			array_push($realresult, $result);
+			array_push($op_string, $string);?>
+			<tr>
+				<td><?php echo $c; ?>	</td>
+				<td><?php echo (' '.$a.' / '.$b.' = ');?></td>
+				<td><?php echo'<input required="" type="text" name="answer'.$c.'">'?></td>
+			</tr>
+				<?php
+		}
+	}
+ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -57,68 +122,26 @@
 						$ope=rand(1, 4);
 						switch ($ope) {
 							case 1:
-								$a = rand($data[0], $data[1]);
-								$b = rand($data[0], $data[1]);
-								$result = $a+$b;
-								$string = ' '.$a.' + '.$b.' = ';
-								array_push($realresult, $result);
-								array_push($op_string, $string);?>
-								<tr>
-									<td><?php echo $c; ?>	</td>
-									<td><?php echo('  '.$a.' + '.$b.' = ');?></td>
-									<td><?php echo'<input required="" type="text" name="answer'.$c.'">'?></td>
-								</tr>
-									<?php
+								$call = new Operaciones;
+								$call -> op_suma($data, $realresult, $op_string, $c);
 								break;
 							case 2:
-								$a = rand($data[2], $data[3]);
-								$b = $a + rand($data[2], $data[3]);
-								$result = $b - $a;
-								$string = ' '.$b.' - '.$a.' = ';
-								array_push($realresult, $result);
-								array_push($op_string, $string);?>
-								<tr>
-									<td><?php echo $c; ?>	</td>
-									<td><?php echo(' '.$b.' - '.$a.' = ');?></td>
-									<td><?php echo'<input required="" type="text" name="answer'.$c.'">'?></td>
-								</tr>
-									<?php
+								$call = new Operaciones;
+								$call -> op_resta($data, $realresult, $op_string, $c);
 								break;
 							case 3:
-								$a = rand($data[4], $data[5]);
-								$b = rand($data[4], $data[5]);
-								$result = $a*$b;
-								$string = ' '.$a.' * '.$b.' = ';
-								array_push($realresult, $result);
-								array_push($op_string, $string);?>
-								<tr>
-									<td><?php echo $c; ?>	</td>
-									<td><?php echo (' '.$a.' x '.$b.' = '); ?></td>
-									<td><?php echo'<input required="" type="text" name="answer'.$c.'">'?></td>
-								</tr>
-									<?php
+								$call = new Operaciones;
+								$call -> op_multi($data, $realresult, $op_string, $c);
 								break;
 							case 4:
-								$b = rand($data[6], $data[7]);
-								$a = $b * rand($data[6], $data[7]);
-								$result = $a/$b;
-								$string = ' '.$a.' / '.$b.' = ';
-								array_push($realresult, $result);
-								array_push($op_string, $string);?>
-								<tr>
-									<td><?php echo $c; ?>	</td>
-									<td><?php echo (' '.$a.' / '.$b.' = ');?></td>
-									<td><?php echo'<input required="" type="text" name="answer'.$c.'">'?></td>
-								</tr>
-									<?php
+								$call = new Operaciones;
+								$call -> op_multi($data, $realresult, $op_string, $c);
 								break;
 						}
 					}
 					//print_r( $realresult);
 					$_SESSION['realresult']= $realresult;
 					$_SESSION['opdata'] = $op_string;
-
-
 				?>
 				</table>
 			</div>
