@@ -10,7 +10,8 @@
 			  exit;
 			}
 	}
-	require_once 'core/config/router.php';
+	require_once 'core/router.php';
+	require_once 'core/request.php';
   // Llamamos a la plantilla base de toda la plataforma
 	require_once 'core/views/template.php';
 	$router = new Router;

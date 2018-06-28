@@ -7,10 +7,10 @@
     function __construct(){
       if (isset($_GET['url'])) {
         $route = filter_input(INPUT_GET, 'url', FILTER_SANITIZE_URL);
-        $route = explode('/', $route);
+        $route = explode('//', $route);
         $route = array_filter($route);
         if ($route[0] == 'index.php') {
-          $this->section = 'home';
+          $this->section = 'login';
         }
         elseif(count($route) == 1){
           $this->section = strtolower(array_shift($route));
@@ -22,20 +22,20 @@
         $this->argument = $route;
       }
       else {
-        $this->page = 'home';
+        $this->page = 'login';
       }
     }
 
-    public function getSection(){
-			return $this->section;
-		}
+    function getSection(){
+		return $this->section;
+	}
 
-		public function getPage(){
-			return $this->page;
-		}
+	function getPage(){
+		return $this->page;
+	}
 
-		public function getArgument(){
-			return $this->argument;
-		}
+	function getArgument(){
+		return $this->argument;
+	}
   }
 ?>

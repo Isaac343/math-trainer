@@ -1,5 +1,4 @@
 <?php
-	session_start();
 	global $realresult;
 	class Operaciones{
 
@@ -66,16 +65,6 @@
 		}
 	}
  ?>
-<!DOCTYPE html>
-<html>
-<head>
-	<title>PE6°P</title>
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-  <script type="text/javascript" src="js/jquery.js"></script>
-  <script type="text/javascript" src="js/bootstrap.js"></script>
-</head>
-<body>
 <div class="container-fluid">
 	<div class="main-container-ii">
 		<div class="container">
@@ -152,5 +141,3 @@
 		</div>
 	</div>
 </div>
-</body>
-</html>
