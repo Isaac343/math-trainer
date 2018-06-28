@@ -48,9 +48,9 @@ if ($result->num_rows > 0) {
 
             <?php
               $user = $_SESSION['idusername'];
-              $sql2 = "SELECT * FROM progress WHERE iduser='$user'";
-              $result2= $conn->query($sql2);
-              if ($result2->num_rows > 0):
+              $sql = "SELECT * FROM progress WHERE IdUsuario='$user'";
+              $result = $conn -> query($sql);
+              if ($result->num_rows != 0):
                  echo " <p> Estas son tus estadisticas actuales</p>";
                 while ($row2= $result2->fetch_assoc()):
             ?>
