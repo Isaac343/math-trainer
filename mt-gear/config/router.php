@@ -3,7 +3,7 @@
 class Router{
 
   public static function runConnectivity(Request $request){
-    $controller =$resquest->get_controller()."Controller";
+    $controller = $resquest->get_controller()."Controller";
     $route = ROOT . "controllers" . DS . $controller. ".php";
     $method = $request->get_method();
 
